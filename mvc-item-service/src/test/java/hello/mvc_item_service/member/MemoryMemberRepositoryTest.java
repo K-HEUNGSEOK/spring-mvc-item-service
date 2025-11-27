@@ -15,13 +15,14 @@ class MemoryMemberRepositoryTest {
     void memberSuccessTest(){
         Member member = new Member("userA");
         Member saveMember = memberRepository.save(member);
-        Optional<Member> findMember = memberRepository.findById(member.getMemberId());
+        Member findMember = memberRepository.findById(member.getMemberId());
 
-        assertThat(saveMember).isEqualTo(findMember.get());
+        assertThat(saveMember).isEqualTo(findMember);
     }
     @Test
     void memberFailTest(){
-        assertThrows(NoSuchElementException.class, () -> memberRepository.findById(5L).get());
+        Member findMember = memberRepository.findById(5L);
+        assertThat(findMember).isNull();
     }
 
 }
