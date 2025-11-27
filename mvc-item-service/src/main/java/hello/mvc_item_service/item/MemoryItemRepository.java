@@ -15,8 +15,8 @@ public class MemoryItemRepository implements ItemRepository{
 
     @Override
     public Item save(Item item) {
-        item.setItemId(++sequence);
-        itemStore.put(item.getItemId(), item);
+        item.setId(++sequence);
+        itemStore.put(item.getId(), item);
         return item;
     }
 
@@ -38,7 +38,7 @@ public class MemoryItemRepository implements ItemRepository{
     @Override
     public void update(Long itemId, Item updateItem) {
         Item findItem = itemStore.get(itemId);
-        findItem.setItemName(updateItem.getItemName());
+        findItem.setName(updateItem.getName());
         findItem.setPrice(updateItem.getPrice());
         findItem.setQuantity(updateItem.getQuantity());
     }

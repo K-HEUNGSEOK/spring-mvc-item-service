@@ -15,10 +15,10 @@ class MemoryItemRepositoryTest {
         itemRepository.save(item);
         Item updateItem = new Item("에어컨", 20000, 2);
 
-        itemRepository.update(item.getItemId(), updateItem);
+        itemRepository.update(item.getId(), updateItem);
 
-        Item findItem = itemRepository.findById(item.getItemId());
-        assertThat(findItem.getItemName()).isEqualTo(updateItem.getItemName());
+        Item findItem = itemRepository.findById(item.getId());
+        assertThat(findItem.getName()).isEqualTo(updateItem.getName());
         assertThat(findItem.getPrice()).isEqualTo(updateItem.getPrice());
         assertThat(findItem.getQuantity()).isEqualTo(updateItem.getQuantity());
     }
