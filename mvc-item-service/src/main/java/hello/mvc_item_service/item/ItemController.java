@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/items")
@@ -32,8 +33,6 @@ public class ItemController {
         return "items/item";
     }
 
-    //뷰 페이지만 보여주는 것
-
     @GetMapping("/{itemId}/edit")
     public String edit(@PathVariable Long itemId, Model model){
         Item item = itemRepository.findById(itemId);
@@ -43,6 +42,20 @@ public class ItemController {
     @PostMapping("/{itemId}/edit")
     public String update(@PathVariable Long itemId , @ModelAttribute Item item) {
         itemRepository.update(itemId,item);
+        return "redirect:/items/{itemId}";
+    }
+
+    @GetMapping("/addForm")
+    public String add(Model model){
+        model.addAttribute("item", new Item());
+        return "items/addForm";
+    }
+
+    @PostMapping("/addForm")
+    public String save(@ModelAttribute Item item, RedirectAttributes redirectAttributes){
+        itemRepository.save(item);
+        redirectAttributes.addAttribute("itemId", item.getId());
+        redirectAttributes.addAttribute("status", true);
         return "redirect:/items/{itemId}";
     }
 }
