@@ -8,6 +8,7 @@
         .container {
             max-width: 560px;
         }
+
         .field-error {
             border-color: #dc3545;
             color: #dc3545;
@@ -23,18 +24,27 @@
     </div>
 
     <form action="items.html" th:action th:object="${item}" method="post">
-
+        <div>
+            <p class="field-error" th:if="${#fields.hasGlobalErrors()}"
+               th:each="err : ${#fields.globalErrors()}" th:text="${err}"></p>
+        </div>
         <div>
             <label for="itemName">상품명</label>
-            <input type="text" id="itemName" th:field="*{name}"  class="form-control" placeholder="이름을 입력하세요">
+            <p class="field-error" th:errors="*{name}"></p>
+            <input th:errorclass="field-error" type="text" id="itemName" th:field="*{name}" class="form-control"
+                   placeholder="이름을 입력하세요">
         </div>
         <div>
             <label for="price">가격</label>
-            <input type="text" id="price" th:field="*{price}"  class="form-control" placeholder="가격을 입력하세요">
+            <p class="field-error" th:errors="*{price}"></p>
+            <input th:errorclass="field-error" type="text" id="price" th:field="*{price}" class="form-control"
+                   placeholder="가격을 입력하세요">
         </div>
         <div>
             <label for="quantity">수량</label>
-            <input type="text" id="quantity" th:field="*{quantity}"  class="form-control" placeholder="수량을 입력하세요">
+            <p class="field-error" th:errors="*{quantity}"></p>
+            <input th:errorclass="field-error" type="text" id="quantity" th:field="*{quantity}" class="form-control"
+                   placeholder="수량을 입력하세요">
         </div>
 
         <hr class="my-4">
@@ -47,11 +57,13 @@
                 <button class="w-100 btn btn-secondary btn-lg"
                         onclick="location.href='items.html'"
                         th:onclick="|location.href='@{/items}'|"
-                        type="button">취소</button>
+                        type="button">취소
+                </button>
             </div>
         </div>
 
     </form>
 
-</div> </body>
+</div>
+</body>
 </html>

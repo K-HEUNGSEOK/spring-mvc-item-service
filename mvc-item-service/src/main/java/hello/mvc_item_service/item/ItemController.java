@@ -1,11 +1,14 @@
 package hello.mvc_item_service.item;
 
+import hello.mvc_item_service.item.dto.ItemSave;
 import jakarta.annotation.PostConstruct;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -52,7 +55,22 @@ public class ItemController {
     }
 
     @PostMapping("/addForm")
-    public String save(@ModelAttribute Item item, RedirectAttributes redirectAttributes){
+    public String save(@Validated @ModelAttribute("item") ItemSave itemSave, BindingResult bindingResult,
+                       RedirectAttributes redirectAttributes){
+
+        //글로벌 예외
+        if (itemSave.getPrice() != null && itemSave.getQuantity() != null){
+            int result = itemSave.getPrice() * itemSave.getQuantity();
+            if (result < 10000){
+                bindingResult.reject("totalPrice", new Object[]{10000, result}, null);
+            }
+        }
+
+        //검증 추가
+        if (bindingResult.hasErrors()){
+            return "items/addForm";
+        }
+        Item item = new Item(itemSave.getName(), itemSave.getPrice(), itemSave.getQuantity());
         itemRepository.save(item);
         redirectAttributes.addAttribute("itemId", item.getId());
         redirectAttributes.addAttribute("status", true);
