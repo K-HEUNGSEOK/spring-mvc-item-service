@@ -1,16 +1,15 @@
-package hello.mvc_item_service.item;
+package hello.mvc_item_service.item.repository;
 
-import java.sql.SQLData;
+import hello.mvc_item_service.item.model.Item;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class MemoryItemRepository implements ItemRepository{
-    private static final Map<Long,Item> itemStore = new ConcurrentHashMap<>();
+    private static final Map<Long, Item> itemStore = new ConcurrentHashMap<>();
     private static Long sequence = 0L;
 
     @Override

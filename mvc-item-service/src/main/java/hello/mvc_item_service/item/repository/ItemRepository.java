@@ -1,7 +1,7 @@
-package hello.mvc_item_service.item;
+package hello.mvc_item_service.item.repository;
 
+import hello.mvc_item_service.item.model.Item;
 import java.util.List;
-import java.util.Optional;
 
 public interface ItemRepository {
     Item save(Item item);

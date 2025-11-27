@@ -1,4 +1,4 @@
-package hello.mvc_item_service.item;
+package hello.mvc_item_service.item.model;
 
 import lombok.Data;
 

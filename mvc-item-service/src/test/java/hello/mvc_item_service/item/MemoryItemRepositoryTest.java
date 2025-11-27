@@ -1,9 +1,10 @@
 package hello.mvc_item_service.item;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
-import org.assertj.core.api.Assertions;
+import hello.mvc_item_service.item.model.Item;
+import hello.mvc_item_service.item.repository.ItemRepository;
+import hello.mvc_item_service.item.repository.MemoryItemRepository;
 import org.junit.jupiter.api.Test;
 
 class MemoryItemRepositoryTest {

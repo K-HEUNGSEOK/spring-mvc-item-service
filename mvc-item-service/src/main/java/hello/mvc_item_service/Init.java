@@ -1,13 +1,9 @@
 package hello.mvc_item_service;
 
-import hello.mvc_item_service.item.Item;
-import hello.mvc_item_service.item.ItemRepository;
-import hello.mvc_item_service.member.Member;
-import hello.mvc_item_service.member.MemberRepository;
+import hello.mvc_item_service.item.model.Item;
+import hello.mvc_item_service.item.repository.ItemRepository;
 import jakarta.annotation.PostConstruct;
-import javax.swing.plaf.PanelUI;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
