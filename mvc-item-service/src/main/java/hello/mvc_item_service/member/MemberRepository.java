@@ -8,5 +8,5 @@ public interface MemberRepository {
     Member findById(Long memberId);
     List<Member> findByAll();
     void clear();
-
+    Optional<Member> findByLoginId(String loginId);
 }
