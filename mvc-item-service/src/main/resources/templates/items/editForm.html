@@ -30,15 +30,18 @@
         </div>
         <div>
             <label for="itemName">상품명</label>
-            <input type="text" id="itemName" th:field="*{name}" class="form-control" >
+            <p class="field-error" th:errors="*{name}"></p>
+            <input th:errorclass="field-error" type="text" id="itemName" th:field="*{name}" class="form-control" >
         </div>
         <div>
             <label for="price">가격</label>
-            <input type="text" id="price" th:field="*{price}" class="form-control" >
+            <p class="field-error" th:errors="*{price}"></p>
+            <input th:errorclass="field-error" type="text" id="price" th:field="*{price}" class="form-control" >
         </div>
         <div>
             <label for="quantity">수량</label>
-            <input type="text" id="quantity" th:field="*{quantity}" class="form-control">
+            <p class="field-error" th:errors="*{quantity}"></p>
+            <input th:errorclass="field-error" type="text" id="quantity" th:field="*{quantity}" class="form-control">
         </div>
 
         <hr class="my-4">
