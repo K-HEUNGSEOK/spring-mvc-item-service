@@ -12,12 +12,16 @@
     </div>
     <div class="row">
         <div class="col">
-            <button class="w-100 btn btn-secondary btn-lg" type="button" onclick="location.href='members/add.html'">
+            <button class="w-100 btn btn-secondary btn-lg" type="button"
+                    th:onclick="|location.href='@{members/addMemberForm}'|"
+                    onclick="location.href='members/add.html'">
                 회원 가입
             </button>
         </div>
         <div class="col">
-            <button class="w-100 btn btn-dark btn-lg" onclick="location.href='login.html'" type="button">
+            <button class="w-100 btn btn-dark btn-lg"
+                    th:onclick="|location.href='@{/login}'|"
+                    onclick="location.href='login.html'" type="button">
                 로그인
             </button>
         </div>
