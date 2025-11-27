@@ -12,4 +12,13 @@ public class Member {
     private String loginName;
     @NotEmpty
     private String password;
+
+    public Member(String name, String loginName, String password) {
+        this.name = name;
+        this.loginName = loginName;
+        this.password = password;
+    }
+
+    public Member() {
+    }
 }
