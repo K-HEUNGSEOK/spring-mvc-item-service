@@ -32,18 +32,12 @@
                 <th>수량</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody th:each="item : ${items}">
             <tr>
-                <td><a href="item.html">1</a></td>
-                <td><a href="item.html">상품A</a></td>
-                <td>10000</td>
-                <td>10</td>
-            </tr>
-            <tr>
-                <td><a href="item.html">2</a></td>
-                <td><a href="item.html">상품B</a></td>
-                <td>20000</td>
-                <td>20</td>
+                <td><a href="../../static/item.html" th:href="@{/items/{itemId}(itemId=${item.itemId})}" th:text="${item.itemId}">1</a></td>
+                <td><a href="../../static/item.html" th:href="@{/items/{itemId}(itemId=${item.itemId})}" th:text="${item.itemName}">상품A</a></td>
+                <td th:text="${item.price}">10000</td>
+                <td th:text="${item.quantity}">10</td>
             </tr>
             </tbody>
         </table>
