@@ -1,7 +1,7 @@
 package hello.mvc_item_service;
 
-import hello.mvc_item_service.argumentresolver.LoginMemberArgumentResolver;
-import hello.mvc_item_service.interceptor.MyInterceptor;
+import hello.mvc_item_service.web.argumentresolver.LoginMemberArgumentResolver;
+import hello.mvc_item_service.web.interceptor.MyInterceptor;
 import java.util.List;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;

@@ -1,4 +1,4 @@
-package hello.mvc_item_service.interceptor;
+package hello.mvc_item_service.web.interceptor;
 
 import hello.mvc_item_service.util.SessionLoginId;
 import jakarta.servlet.http.HttpServletRequest;

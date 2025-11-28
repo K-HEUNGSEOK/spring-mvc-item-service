@@ -1,4 +1,4 @@
-package hello.mvc_item_service.argumentresolver;
+package hello.mvc_item_service.web.argumentresolver;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
