@@ -29,6 +29,10 @@ public class MemberController {
         if (bindingResult.hasErrors()) {
             return "member/addMemberForm";
         }
+        if(memberRepository.findByLoginId(memberSave.getLoginName()).isPresent()){
+            bindingResult.rejectValue("loginName", "duplicate", "이미 존재하는 아이디입니다.");
+            return "member/addMemberForm";
+        }
         Member member = new Member(memberSave.getName(), memberSave.getLoginName(), memberSave.getPassword());
         memberRepository.save(member);
         return "redirect:/";
