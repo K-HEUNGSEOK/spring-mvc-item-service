@@ -1,7 +1,10 @@
 package hello.mvc_item_service;
 
+import hello.mvc_item_service.argumentresolver.LoginMemberArgumentResolver;
 import hello.mvc_item_service.interceptor.MyInterceptor;
+import java.util.List;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -12,6 +15,12 @@ public class WebConfiguration implements WebMvcConfigurer {
         registry.addInterceptor(new MyInterceptor())
                 .order(1)
                 .addPathPatterns("/**")
-                .excludePathPatterns("/css/**", "/login", "/", "/members/addMemberForm");
+                .excludePathPatterns("/css/**", "/login", "/login/logout", "/", "/members/addMemberForm",
+                        "/*.ico", "/error");
+    }
+
+    @Override
+    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
+        resolvers.add(new LoginMemberArgumentResolver());
     }
 }
