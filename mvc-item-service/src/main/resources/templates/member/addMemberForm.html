@@ -25,12 +25,13 @@
         <div>
             <label for="loginName">로그인 ID</label>
             <p class="field-error" th:errors="*{loginName}"></p>
-            <input th:errorclass="field-error" type="text" id="loginName" th:field="*{loginName}"  class="form-control">
+            <input th:errorclass="field-error" type="text" id="loginName" th:field="*{loginName}" class="form-control">
         </div>
         <div>
             <label for="password">비밀번호</label>
             <p class="field-error" th:errors="*{password}"></p>
-            <input th:errorclass="field-error" type="password" id="password" th:field="*{password}" class="form-control">
+            <input th:errorclass="field-error" type="password" id="password" th:field="*{password}"
+                   class="form-control">
         </div>
         <div>
             <label for="name">이름</label>

@@ -1,6 +1,5 @@
 package hello.mvc_item_service.member;
 
-import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 
 @Data

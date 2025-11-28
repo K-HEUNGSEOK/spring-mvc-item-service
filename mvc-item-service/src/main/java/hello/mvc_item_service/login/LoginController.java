@@ -1,8 +1,8 @@
 package hello.mvc_item_service.login;
 
-import hello.mvc_item_service.util.SessionLoginId;
 import hello.mvc_item_service.login.dto.LoginForm;
 import hello.mvc_item_service.member.Member;
+import hello.mvc_item_service.util.SessionLoginId;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -21,21 +21,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequiredArgsConstructor
 public class LoginController {
     private final LoginService loginService;
+
     @GetMapping
-    public String login(Model model){
+    public String login(Model model) {
         model.addAttribute("login", new LoginForm());
         return "login/loginForm";
     }
+
     @PostMapping
     public String loginForm(@Validated @ModelAttribute("login") LoginForm form,
                             BindingResult bindingResult,
                             @RequestParam(defaultValue = "/") String redirectURL,
-                            HttpServletRequest request){
-        if (bindingResult.hasErrors()){
+                            HttpServletRequest request) {
+        if (bindingResult.hasErrors()) {
             return "login/loginForm";
         }
         Member member = loginService.checkLoginMember(form.getLoginName(), form.getPassword());
-        if (member == null ){
+        if (member == null) {
             bindingResult.reject("loginFail", "아이디 또는 비밀번호가 맞지 않습니다.");
             return "login/loginForm";
         }
@@ -46,9 +48,9 @@ public class LoginController {
     }
 
     @PostMapping("/logout")
-    public String logout(HttpServletRequest request){
+    public String logout(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
-        if (session != null){
+        if (session != null) {
             session.invalidate();
         }
         return "redirect:/";

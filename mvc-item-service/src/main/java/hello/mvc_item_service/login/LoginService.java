@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service;
 public class LoginService {
     private final MemberRepository memberRepository;
 
-    public Member checkLoginMember(String loginId, String password){
-      return memberRepository.findByLoginId(loginId)
-               .stream()
-               .filter(member -> member.getPassword().equals(password))
-               .findFirst().orElse(null);
+    public Member checkLoginMember(String loginId, String password) {
+        return memberRepository.findByLoginId(loginId)
+                .stream()
+                .filter(member -> member.getPassword().equals(password))
+                .findFirst().orElse(null);
     }
 }

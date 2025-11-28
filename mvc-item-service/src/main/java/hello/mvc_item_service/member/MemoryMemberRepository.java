@@ -8,9 +8,10 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class MemoryMemberRepository implements MemberRepository{
+public class MemoryMemberRepository implements MemberRepository {
     private static final Map<Long, Member> store = new ConcurrentHashMap<>();
     private static long sequence = 0L;
+
     @Override
     public Member save(Member member) {
         member.setId(++sequence);
@@ -24,8 +25,8 @@ public class MemoryMemberRepository implements MemberRepository{
     }
 
     @Override
-    public Optional<Member> findByLoginId(String loginId){
-       return findByAll().stream()
+    public Optional<Member> findByLoginId(String loginId) {
+        return findByAll().stream()
                 .filter(member -> member.getLoginName().equals(loginId))
                 .findFirst();
     }

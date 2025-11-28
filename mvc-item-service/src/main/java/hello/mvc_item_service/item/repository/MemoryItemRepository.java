@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class MemoryItemRepository implements ItemRepository{
+public class MemoryItemRepository implements ItemRepository {
     private static final Map<Long, Item> itemStore = new ConcurrentHashMap<>();
     private static Long sequence = 0L;
 

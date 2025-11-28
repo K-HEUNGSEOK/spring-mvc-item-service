@@ -13,9 +13,10 @@ import org.springframework.stereotype.Component;
 public class Init {
 
     private final ItemRepository itemRepository;
-    private final MemberRepository memberRepository ;
+    private final MemberRepository memberRepository;
+
     @PostConstruct
-    public void init(){
+    public void init() {
         Member member = new Member("김흥석", "test", "test!");
         memberRepository.save(member);
         Item itemA = new Item("냉장고", 10000, 1);

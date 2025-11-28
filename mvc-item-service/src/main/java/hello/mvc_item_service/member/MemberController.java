@@ -15,16 +15,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/members")
 @RequiredArgsConstructor
 public class MemberController {
-    private final MemberRepository memberRepository ;
+    private final MemberRepository memberRepository;
+
     @GetMapping("/addMemberForm")
-    public String member(Model model){
+    public String member(Model model) {
         Member member = new Member();
         model.addAttribute("member", member);
         return "member/addMemberForm";
     }
+
     @PostMapping("/addMemberForm")
-    public String save(@Validated @ModelAttribute("member")MemberSave memberSave, BindingResult bindingResult ){
-        if (bindingResult.hasErrors()){
+    public String save(@Validated @ModelAttribute("member") MemberSave memberSave, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             return "member/addMemberForm";
         }
         Member member = new Member(memberSave.getName(), memberSave.getLoginName(), memberSave.getPassword());

@@ -1,9 +1,9 @@
 package hello.mvc_item_service.item.controller;
 
-import hello.mvc_item_service.item.repository.ItemRepository;
 import hello.mvc_item_service.item.dto.ItemEdit;
 import hello.mvc_item_service.item.dto.ItemSave;
 import hello.mvc_item_service.item.model.Item;
+import hello.mvc_item_service.item.repository.ItemRepository;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -11,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,7 +33,7 @@ public class ItemController {
     }
 
     @PostMapping("/{itemId}/delete")
-    public String deleteItem(@PathVariable Long itemId){
+    public String deleteItem(@PathVariable Long itemId) {
         itemRepository.delete(itemId);
         return "redirect:/items";
     }
@@ -62,7 +61,7 @@ public class ItemController {
                 bindingResult.reject("totalPrice", new Object[]{10000, result}, null);
             }
         }
-        if (bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             return "/items/editForm";
         }
         Item item = new Item(itemEdit.getName(), itemEdit.getPrice(), itemEdit.getQuantity());
