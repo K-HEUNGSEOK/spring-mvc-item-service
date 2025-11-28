@@ -41,4 +41,9 @@ public class MemoryItemRepository implements ItemRepository{
         findItem.setPrice(updateItem.getPrice());
         findItem.setQuantity(updateItem.getQuantity());
     }
+
+    @Override
+    public void delete(Long itemId) {
+        itemStore.remove(itemId);
+    }
 }

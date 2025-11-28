@@ -9,4 +9,5 @@ public interface ItemRepository {
     List<Item> findByAll();
     void clear();
     void update(Long itemId, Item updateItem);
+    void delete(Long itemId);
 }
