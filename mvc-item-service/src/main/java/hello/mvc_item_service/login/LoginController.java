@@ -1,6 +1,6 @@
 package hello.mvc_item_service.login;
 
-import hello.mvc_item_service.SessionLoginId;
+import hello.mvc_item_service.util.SessionLoginId;
 import hello.mvc_item_service.login.dto.LoginForm;
 import hello.mvc_item_service.member.Member;
 import jakarta.servlet.http.HttpServletRequest;

@@ -1,6 +1,7 @@
 package hello.mvc_item_service;
 
 import hello.mvc_item_service.member.Member;
+import hello.mvc_item_service.util.SessionLoginId;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

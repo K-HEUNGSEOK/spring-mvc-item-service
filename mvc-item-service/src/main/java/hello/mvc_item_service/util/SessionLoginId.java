@@ -1,4 +1,4 @@
-package hello.mvc_item_service;
+package hello.mvc_item_service.util;
 
 public class SessionLoginId {
     private SessionLoginId() {

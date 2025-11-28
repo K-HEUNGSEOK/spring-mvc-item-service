@@ -1,4 +1,4 @@
-package hello.mvc_item_service;
+package hello.mvc_item_service.util;
 
 import hello.mvc_item_service.item.model.Item;
 import hello.mvc_item_service.item.repository.ItemRepository;
