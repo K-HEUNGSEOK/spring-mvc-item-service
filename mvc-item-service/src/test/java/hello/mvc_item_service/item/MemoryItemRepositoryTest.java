@@ -23,4 +23,11 @@ class MemoryItemRepositoryTest {
         assertThat(findItem.getPrice()).isEqualTo(updateItem.getPrice());
         assertThat(findItem.getQuantity()).isEqualTo(updateItem.getQuantity());
     }
+    @Test
+    void delete(){
+        Item item = new Item("냉장고", 10000, 1);
+        itemRepository.save(item);
+        itemRepository.delete(item.getId());
+        assertThat(itemRepository.findById(item.getId())).isNull();
+    }
 }
