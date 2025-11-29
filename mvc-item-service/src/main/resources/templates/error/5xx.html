@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>서비스 오류 (5xx)</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #fff0f0;
+            color: #333;
+        }
+        h1 { font-size: 3rem; margin-bottom: 20px; color: #dc3545; }
+        p { font-size: 1.2rem; margin-bottom: 30px; }
+
+        /* 버튼 스타일 */
+        .btn-go-back {
+            padding: 15px 30px;
+            background-color: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .btn-go-back:hover { background-color: #5a6268; }
+    </style>
+</head>
+<body>
+
+<h1>Service Error</h1>
+<p>서버에 문제가 발생하여 요청을 처리할 수 없습니다.</p>
+
+<a href="/" th:onclick="|location.href='@{/}'|" class="btn-go-back">되돌아가기</a>
+
+</body>
+</html>

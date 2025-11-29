@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>잘못된 요청 (4xx)</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        h1 { font-size: 3rem; margin-bottom: 20px; color: #ffc107; }
+        p { font-size: 1.2rem; margin-bottom: 30px; }
+
+        /* 버튼 스타일 */
+        .btn-go-back {
+            padding: 15px 30px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .btn-go-back:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+
+<h1>Oops! Page Not Found</h1>
+<p>요청하신 페이지를 찾을 수 없거나 잘못된 경로입니다.</p>
+
+<a href="/" th:onclick="|location.href='@{/}'|" class="btn-go-back">되돌아가기</a>
+
+</body>
+</html>

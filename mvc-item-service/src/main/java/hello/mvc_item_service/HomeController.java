@@ -28,4 +28,9 @@ public class HomeController {
         model.addAttribute("member", member);
         return "loginHome";
     }
+
+    @GetMapping("/error-500")
+    public void errorTest(){
+        throw new RuntimeException();
+    }
 }
